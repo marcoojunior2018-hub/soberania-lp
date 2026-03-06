@@ -759,8 +759,8 @@ function AboutMeSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           {/* Photo Side */}
           <FadeIn>
-            <div className="lg:w-[45%] xl:w-[40%] flex-shrink-0 relative">
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden glass-card border-none bg-black/20">
+            <div className="w-full sm:max-w-md lg:max-w-none mx-auto relative shadow-2xl">
+              <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden glass-card border-none bg-black/20">
                 <img
                   src="/foto-sessao-eu-sou.webp"
                   alt="Marco Antonio demonstrando resultados e engajamento profissional"
