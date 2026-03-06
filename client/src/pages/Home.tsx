@@ -30,7 +30,7 @@ import DiagnosticModal from '@/components/DiagnosticModal';
 import profilePic from '@/assets/marco.svg'; // Using as fallback conceptually
 
 /* ───────────────────── CDN/LOCAL URLs ───────────────────── */
-const HERO_BG = '/foto-sessao-hero.webp';
+const HERO_BG = '/foto-sessao-hero.png';
 const GRID_BG = "data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 1H0M1 0v40' stroke='rgba(255, 255, 255, 0.05)' stroke-width='1'/%3E%3C/svg%3E";
 const MACBOOK_MOCKUP = '/mockup-placeholder.png'; // Will be replaced by realistic 3D isometric mockup
 
@@ -762,7 +762,7 @@ function AboutMeSection() {
             <div className="lg:w-[45%] xl:w-[40%] flex-shrink-0 relative">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden glass-card border-none bg-black/20">
                 <img
-                  src="/foto-sessao-eu-sou.webp"
+                  src="/foto-sessao-eu-sou.png"
                   alt="Marco Antonio demonstrando resultados e engajamento profissional"
                   className="w-full h-full object-cover object-top mix-blend-luminosity opacity-90 transition-opacity duration-500 hover:opacity-100 hover:mix-blend-normal"
                   loading="lazy"
