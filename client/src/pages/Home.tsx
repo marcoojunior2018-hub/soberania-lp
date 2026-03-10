@@ -54,7 +54,7 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
       />
 
       {/* Hero image — right side on desktop */}
-      <div className="absolute inset-0 lg:left-[40%] opacity-55 lg:opacity-80">
+      <div className="absolute inset-0 lg:left-[40%] opacity-[0.35] lg:opacity-80">
         <img
           src={HERO_BG}
           alt="Marco Antonio - Estruturador de Captação e Engenharia de Vendas no Google"
@@ -67,8 +67,9 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
           width={800}
           height={1000}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1117] via-[#0F1117]/60 lg:via-[#0F1117]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-[#0F1117]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1117] via-[#0F1117]/80 lg:via-[#0F1117]/70 to-[#0F1117]/50 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-[#0F1117]/50 lg:via-[#0F1117]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F1117]/80 via-transparent to-transparent lg:hidden" />
       </div>
 
       <div className="relative z-10 container pt-36 pb-28 lg:pt-32 lg:pb-32">
