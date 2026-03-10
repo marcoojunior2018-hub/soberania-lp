@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://soberania.ag/sitemap.xml
+Sitemap: https://www.marcoantonio.digital/sitemap.xml

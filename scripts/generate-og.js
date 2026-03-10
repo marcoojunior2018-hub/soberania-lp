@@ -68,7 +68,7 @@ async function generateOG() {
       </text>
       <circle cx="260" cy="544" r="3" fill="rgba(199,206,219,0.3)" />
       <text x="280" y="549" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="rgba(199,206,219,0.6)">
-        soberania.ag
+        marcoantonio.digital
       </text>
     </svg>
   `;
