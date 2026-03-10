@@ -24,7 +24,7 @@ import {
   Users,
   CheckCircle2,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DiagnosticModal from '@/components/DiagnosticModal';
 import profilePic from '@/assets/marco.svg'; // Using as fallback conceptually
@@ -54,11 +54,11 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
       />
 
       {/* Hero image — right side on desktop */}
-      <div className="absolute inset-0 lg:left-[40%] opacity-40 lg:opacity-80">
+      <div className="absolute inset-0 lg:left-[40%] opacity-55 lg:opacity-80">
         <img
           src={HERO_BG}
           alt="Marco Antonio - Estruturador de Captação e Engenharia de Vendas no Google"
-          className="w-full h-full object-cover object-top lg:object-center bg-[#0F1117]"
+          className="w-full h-full object-cover object-[55%_top] lg:object-center bg-[#0F1117]"
           style={{ transform: 'scaleX(-1)' }}
           onError={(e) => { e.currentTarget.src = '/marco-hero.jpg' }}
           fetchPriority="high"
@@ -67,11 +67,11 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
           width={800}
           height={1000}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1117] via-[#0F1117]/90 lg:via-[#0F1117]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-[#0F1117]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1117] via-[#0F1117]/60 lg:via-[#0F1117]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-[#0F1117]/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 container pt-32 pb-20 lg:pt-32 lg:pb-32">
+      <div className="relative z-10 container pt-36 pb-28 lg:pt-32 lg:pb-32">
         <div className="max-w-2xl lg:max-w-[760px]">
           {/* Chip */}
           <FadeIn>
@@ -83,15 +83,15 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
 
           {/* H1 */}
           <FadeIn delay={100}>
-            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(2.1rem,4vw,3.4rem)] leading-[1.12] tracking-tight mb-8">
-              Estruture sua captação no Google e pare de depender de <br className="hidden lg:block" /><span className="text-[#C7CEDB80] inline-block mt-2 lg:mt-0">portais, indicação e improviso.</span>
+            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(2rem,4vw,3.4rem)] leading-[1.18] lg:leading-[1.12] tracking-tight mb-8">
+              Estruture sua captação <br className="block lg:hidden" /> no Google e pare de depender de <br className="hidden lg:block" /><span className="text-[#C7CEDB80] inline-block mt-2 lg:mt-0">portais, indicação e improviso.</span>
             </h1>
           </FadeIn>
 
           {/* Subtitle & Bullets */}
           <FadeIn delay={200}>
-            <div className="mb-12">
-              <p className="text-[#C7CEDB] text-lg lg:text-xl leading-relaxed max-w-[640px] mb-6" style={{ fontWeight: 300 }}>
+            <div className="mb-14">
+              <p className="text-[#C7CEDB] text-lg lg:text-xl leading-relaxed max-w-[640px] mb-8" style={{ fontWeight: 300 }}>
                 Estruturo máquinas de aquisição no Google para negócios premium que precisam de previsibilidade e lucro auditável.
               </p>
               <ul className="space-y-3">
@@ -280,6 +280,7 @@ function MechanismSection() {
         </FadeIn>
 
         <FadeIn delay={100}>
+          {/* Desktop Stepper */}
           <div className="max-w-4xl mx-auto mb-20 hidden md:block">
             <div className="grid grid-cols-4 gap-4 relative">
               {/* Connecting Line */}
@@ -301,12 +302,33 @@ function MechanismSection() {
               ))}
             </div>
           </div>
+          
+          {/* Mobile Vertical Stepper */}
+          <div className="md:hidden flex flex-col items-center gap-8 mb-8 relative">
+            <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-transparent via-[#8B5CF6]/30 to-transparent" />
+            {[
+              { title: 'Intenção', desc: 'Captura de demanda' },
+              { title: 'Confiança', desc: 'Autoridade local' },
+              { title: 'Conversão', desc: 'Alta performance' },
+              { title: 'Mensuração', desc: 'ROI auditável' }
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col items-center text-center gap-3 group w-full">
+                <div className="w-10 h-10 rounded-full bg-[#0F1117] border border-[#8B5CF6]/40 flex items-center justify-center font-mono-brand text-[10px] text-[#8B5CF6] z-10 shadow-[0_0_15px_rgba(139,92,246,0.15)] shrink-0 group-active:bg-[#8B5CF6]/20 transition-colors">
+                  0{i + 1}
+                </div>
+                <div>
+                  <h4 className="font-headline font-bold text-[#F2F2F2] text-[15px] mb-1">{step.title}</h4>
+                  <p className="text-[#C7CEDB70] text-[10px] sm:text-xs font-mono-brand uppercase tracking-wider">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </FadeIn>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {assets.map((asset, i) => (
             <FadeIn key={asset.title} delay={i * 100}>
-              <div className="glass-card p-8 lg:p-10 h-full border-[#C7CEDB10] hover:border-[#8B5CF6]/40 transition-colors duration-500 group">
+              <div className="glass-card p-8 lg:p-10 h-full border-[#C7CEDB10] hover:border-[#8B5CF6]/40 active:scale-[0.98] active:border-[#8B5CF6]/40 transition-all duration-300 group">
                 <div className="inline-flex items-center justify-center w-12 h-12 border border-[#C7CEDB15] mb-6 group-hover:bg-[#8B5CF6]/10 transition-colors duration-500">
                   <asset.icon className="w-5 h-5 text-[#8B5CF6]" strokeWidth={1.5} />
                 </div>
@@ -529,7 +551,7 @@ function ProofSection() {
               transition={{ duration: 0.4 }}
             >
               <div className="glass-card mb-12 border-[#8B5CF6]/30 bg-gradient-to-br from-[#1A1A24]/60 to-[#0F1117]/90 relative overflow-hidden flex flex-col lg:flex-row">
-                <div className="p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center">
+                <div className="p-6 lg:p-12 lg:w-1/2 flex flex-col justify-center">
                   <div className="flex flex-wrap items-center gap-2 mb-6">
                     <span className="chip bg-[#8B5CF6]/20 text-[#8B5CF6] border-[#8B5CF6]/30 cursor-pointer hover:bg-[#8B5CF6]/30 hover:border-[#8B5CF6]/50 transition-all duration-300">Araucária</span>
                     <span className="chip border-[#C7CEDB20] text-[#F2F2F2] cursor-pointer hover:bg-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-all duration-300">Google Ads</span>
@@ -543,26 +565,26 @@ function ProofSection() {
                   <p className="font-mono-brand text-xs tracking-wider text-[#C7CEDB60] mb-6">IMOBILIÁRIO • ESTRUTURA + RESULTADOS = 90 DIAS</p>
 
                   <div className="space-y-4 mb-8">
-                    <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Objetivo</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Sair da dependência de portais e dominar busca local orgânica/paga.</span>
                     </div>
-                    <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Implementação</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Reestruturação de SEO Local, site conversivo e tráfego fundo de funil.</span>
                     </div>
-                    <div className="grid grid-cols-[120px_1fr] gap-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Resultado</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Estrutura principal e previsível da imobiliária hoje.</span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
-                    <div>
-                      <div className="font-mono-brand text-3xl font-bold text-[#F2F2F2]">371</div>
-                      <div className="text-[#C7CEDB70] text-xs mt-1">Conversões</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
+                    <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 rounded-lg p-4 sm:p-0 sm:bg-transparent sm:border-none sm:rounded-none">
+                      <div className="font-mono-brand text-4xl sm:text-3xl font-bold text-[#F2F2F2]">371</div>
+                      <div className="text-[#8B5CF6] sm:text-[#C7CEDB70] text-xs mt-1 font-bold sm:font-normal">Conversões</div>
                     </div>
-                    <div>
-                      <div className="font-mono-brand text-3xl font-bold text-[#22C55E]">R$ 15,05</div>
+                    <div className="pt-2 sm:pt-0">
+                      <div className="font-mono-brand text-2xl sm:text-3xl font-bold text-[#22C55E]">R$ 15,05</div>
                       <div className="text-[#C7CEDB70] text-xs mt-1">Custo por conversão</div>
                     </div>
                   </div>
@@ -596,7 +618,7 @@ function ProofSection() {
               transition={{ duration: 0.4 }}
             >
               <div className="glass-card mb-12 border-[#8B5CF6]/10 bg-gradient-to-br from-[#1A1A24]/40 to-[#0F1117]/80 relative overflow-hidden flex flex-col lg:flex-row">
-                <div className="p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center">
+                <div className="p-6 lg:p-12 lg:w-1/2 flex flex-col justify-center">
                   <div className="flex flex-wrap items-center gap-2 mb-6">
                     <span className="chip bg-[#8B5CF6]/20 text-[#8B5CF6] border-[#8B5CF6]/30 cursor-pointer hover:bg-[#8B5CF6]/30 hover:border-[#8B5CF6]/50 transition-all duration-300">Curitiba & Internacional</span>
                     <span className="chip border-[#C7CEDB20] text-[#F2F2F2] cursor-pointer hover:bg-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-all duration-300">Meta Ads</span>
@@ -609,27 +631,27 @@ function ProofSection() {
                   <p className="font-mono-brand text-xs tracking-wider text-[#C7CEDB60] mb-6">JURÍDICO INTERNACIONAL • ESTRUTURA EM 30 DIAS</p>
 
                   <div className="space-y-4 mb-8">
-                    <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Objetivo</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Captar investidores para Golden Visa com autoridade visual.</span>
                     </div>
-                    <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Implementação</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Site premium, SEO on-page focado e Meta Ads segmentado.</span>
                     </div>
-                    <div className="grid grid-cols-[120px_1fr] gap-4">
+                    <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4">
                       <span className="text-[#8B5CF6] font-bold text-sm">Resultado</span>
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Fluxo previsível de leads ultra qualificados no mês 1.</span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
-                    <div>
-                      <div className="font-mono-brand text-3xl font-bold text-[#22C55E]">3º lugar</div>
-                      <div className="text-[#C7CEDB70] text-xs mt-1">p/"visa golden Curitiba" no Google</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
+                    <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 rounded-lg p-4 sm:p-0 sm:bg-transparent sm:border-none sm:rounded-none">
+                      <div className="font-mono-brand text-4xl sm:text-3xl font-bold text-[#F2F2F2]">+40</div>
+                      <div className="text-[#8B5CF6] sm:text-[#C7CEDB70] text-xs mt-1 font-bold sm:font-normal">Leads gerados no mês 1</div>
                     </div>
-                    <div>
-                      <div className="font-mono-brand text-3xl font-bold text-[#F2F2F2]">+40</div>
-                      <div className="text-[#C7CEDB70] text-xs mt-1">Leads gerados no mês 1</div>
+                    <div className="pt-2 sm:pt-0">
+                      <div className="font-mono-brand text-2xl sm:text-3xl font-bold text-[#22C55E]">3º lugar</div>
+                      <div className="text-[#C7CEDB70] text-xs mt-1">p/"visa golden Curitiba" no Google</div>
                     </div>
                   </div>
                 </div>
@@ -666,7 +688,7 @@ function ProofSection() {
               transition={{ duration: 0.4 }}
             >
               <div className="glass-card mb-12 border-[#8B5CF6]/10 bg-gradient-to-br from-[#1A1A24]/40 to-[#0F1117]/80 relative overflow-hidden flex flex-col lg:flex-row">
-                <div className="p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center">
+                <div className="p-6 lg:p-12 lg:w-1/2 flex flex-col justify-center">
                   <div className="flex flex-wrap items-center gap-2 mb-6">
                     <span className="chip bg-[#8B5CF6]/20 text-[#8B5CF6] border-[#8B5CF6]/30 cursor-pointer hover:bg-[#8B5CF6]/30 hover:border-[#8B5CF6]/50 transition-all duration-300">Paraná</span>
                     <span className="chip border-[#C7CEDB20] text-[#F2F2F2] cursor-pointer hover:bg-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-all duration-300">Google Ads</span>
@@ -691,10 +713,10 @@ function ProofSection() {
                       <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Rotina sólida de orçamentos B2B integrada com planilha.</span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
-                    <div>
-                      <div className="font-mono-brand text-3xl font-bold text-[#F2F2F2]">+40</div>
-                      <div className="text-[#C7CEDB70] text-xs mt-1">Solicitações de orçamento reais via CRM</div>
+                  <div className="grid grid-cols-1 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
+                    <div className="bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 rounded-lg p-4 sm:p-0 sm:bg-transparent sm:border-none sm:rounded-none">
+                      <div className="font-mono-brand text-4xl sm:text-3xl font-bold text-[#F2F2F2]">+40</div>
+                      <div className="text-[#8B5CF6] sm:text-[#C7CEDB70] text-xs mt-1 font-bold sm:font-normal">Solicitações de orçamento reais via CRM</div>
                     </div>
                   </div>
                 </div>
@@ -760,11 +782,11 @@ function AboutMeSection() {
           {/* Photo Side */}
           <FadeIn>
             <div className="w-full sm:max-w-md lg:max-w-none mx-auto relative shadow-2xl">
-              <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden glass-card border-none bg-black/20">
+              <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden glass-card border-none bg-black/20">
                 <img
                   src="/foto-sessao-eu-sou.webp"
                   alt="Marco Antonio demonstrando resultados e engajamento profissional"
-                  className="w-full h-full object-cover object-top mix-blend-luminosity opacity-90 transition-opacity duration-500 hover:opacity-100 hover:mix-blend-normal"
+                  className="w-full h-full object-cover object-[center_10%] scale-105 sm:scale-100 mix-blend-luminosity opacity-90 transition-opacity duration-500 hover:opacity-100 hover:mix-blend-normal"
                   loading="lazy"
                   decoding="async"
                   width={600}
@@ -791,10 +813,10 @@ function AboutMeSection() {
               <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight mb-6">
                 Prática real, gestão <br className="hidden lg:block" /> de risco e lucro auditável.
               </h2>
-              <p className="text-[#C7CEDB] text-lg leading-relaxed mb-6" style={{ fontWeight: 300 }}>
+              <p className="text-[#F2F2F2] text-lg leading-relaxed mb-6 font-medium">
                 Eu estruturo aquisição no Google com método, mensuração e previsibilidade — sem pacotes engessados.
               </p>
-              <p className="text-[#C7CEDB80] text-base leading-relaxed mb-10" style={{ fontWeight: 300 }}>
+              <p className="text-[#C7CEDB95] text-base leading-relaxed mb-10" style={{ fontWeight: 400 }}>
                 Minha atuação não é baseada em teoria genérica ou "achismos". Ela nasce de operação real, onde cada real investido precisa retornar como receita. Abandonei o modelo frágil de agências tradicionais para entregar uma assessoria executiva, lado a lado com os decisores.
               </p>
             </FadeIn>
@@ -802,16 +824,16 @@ function AboutMeSection() {
             <div className="grid grid-cols-2 gap-4 mb-10">
               <FadeIn delay={200}>
                 <div className="glass-card p-5 border-l-2 border-l-[#8B5CF6] h-full flex flex-col justify-center">
-                  <span className="font-mono-brand text-2xl lg:text-3xl text-[#F2F2F2] font-bold block mb-1">R$ 3M+</span>
-                  <p className="text-[#C7CEDB70] text-[10px] lg:text-xs tracking-wider uppercase" style={{ fontWeight: 300 }}>
+                  <span className="font-mono-brand text-3xl lg:text-3xl text-[#F2F2F2] font-bold block mb-1">R$ 3M+</span>
+                  <p className="text-[#C7CEDB80] text-[10px] lg:text-xs tracking-wider uppercase font-medium">
                     gerenciados em mídia
                   </p>
                 </div>
               </FadeIn>
               <FadeIn delay={300}>
                 <div className="glass-card p-5 border-l-2 border-l-[#8B5CF6] h-full flex flex-col justify-center">
-                  <span className="font-mono-brand text-2xl lg:text-3xl text-[#F2F2F2] font-bold block mb-1">4 Anos</span>
-                  <p className="text-[#C7CEDB70] text-[10px] lg:text-xs tracking-wider uppercase" style={{ fontWeight: 300 }}>
+                  <span className="font-mono-brand text-3xl lg:text-3xl text-[#F2F2F2] font-bold block mb-1">4 Anos</span>
+                  <p className="text-[#C7CEDB80] text-[10px] lg:text-xs tracking-wider uppercase font-medium">
                     de operação na linha de frente
                   </p>
                 </div>
@@ -1040,9 +1062,9 @@ function FAQSection() {
                       pushToDataLayer('faq_open', { faq_question: faq.q });
                     }
                   }}
-                  className="w-full flex items-center justify-between py-6 text-left gap-4"
+                  className="w-full flex items-center justify-between py-6 lg:py-8 text-left gap-4 active:bg-white/5 transition-colors px-2 -mx-2 rounded-lg"
                 >
-                  <span className="font-headline font-bold text-[#F2F2F2] text-sm lg:text-base">
+                  <span className="font-headline font-bold text-[#F2F2F2] text-[15px] lg:text-base">
                     {faq.q}
                   </span>
                   <ChevronDown
@@ -1058,7 +1080,7 @@ function FAQSection() {
                     opacity: openIndex === i ? 1 : 0,
                   }}
                 >
-                  <p className="text-[#C7CEDB90] text-sm leading-relaxed pb-6 whitespace-pre-line" style={{ fontWeight: 300 }}>
+                  <p className="text-[#C7CEDB] text-[15px] leading-relaxed pb-8 pt-2 px-2 whitespace-pre-line" style={{ fontWeight: 400 }}>
                     {faq.a}
                   </p>
                 </div>
@@ -1074,7 +1096,7 @@ function FAQSection() {
 /* ───────────────────── FOOTER ───────────────────── */
 function Footer() {
   return (
-    <footer className="py-12 border-t border-[#C7CEDB10]" style={{ background: '#0F1117' }}>
+    <footer id="footer-section" className="py-12 border-t border-[#C7CEDB10]" style={{ background: '#0F1117' }}>
       <div className="container text-center">
         <p className="font-headline font-extrabold text-[#F2F2F2] text-sm mb-2">
           Visão + Método + Prova
@@ -1129,8 +1151,21 @@ function Footer() {
 /* ───────────────────── PAGE ───────────────────── */
 export default function Home() {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, position: 'hero' as any, text: '' });
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  
   const openModal = (pos: any = 'hero', text: string = '') => setModalConfig({ isOpen: true, position: pos, text });
   const closeModal = () => setModalConfig(prev => ({ ...prev, isOpen: false }));
+
+  useEffect(() => {
+    const footer = document.getElementById('footer-section');
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsFooterVisible(entry.isIntersecting),
+      { rootMargin: '0px' }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   const schemaOrg = {
     "@context": "https://schema.org",
@@ -1181,7 +1216,12 @@ export default function Home() {
       <Footer />
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 z-50 md:hidden bg-gradient-to-t from-[#0A0B10] via-[#0A0B10]/90 to-transparent pointer-events-none">
+      <div 
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden pointer-events-none transition-all duration-500 ease-in-out ${
+          isFooterVisible ? 'translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+      >
+        <div className="bg-gradient-to-t from-[#0A0B10] via-[#0A0B10]/95 to-transparent pt-12 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
         <button
           data-gtm="cta"
           data-cta-position="final"
@@ -1198,6 +1238,7 @@ export default function Home() {
         >
           AGENDAR DIAGNÓSTICO
         </button>
+        </div>
       </div>
 
       <DiagnosticModal
