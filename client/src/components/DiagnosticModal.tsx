@@ -79,7 +79,7 @@ export default function DiagnosticModal({ isOpen, onClose, originCtaPosition = '
                             </div>
 
                             <a
-                                href="https://wa.me/5548999120668"
+                                href="https://wa.me/5541987505634"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-gtm="cta"
@@ -88,7 +88,7 @@ export default function DiagnosticModal({ isOpen, onClose, originCtaPosition = '
                                     cta_position: 'modal',
                                     cta_text: 'Falar no WhatsApp',
                                     path_type: 'direct',
-                                    link_url: 'https://wa.me/5548999120668'
+                                    link_url: 'https://wa.me/5541987505634'
                                 })}
                                 className="btn-sheen w-full group relative overflow-hidden bg-[#F2F2F2] text-[#0F1117] font-bold py-3.5 px-6 rounded flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] shadow-[0_0_20px_rgba(242,242,242,0.1)]"
                             >
