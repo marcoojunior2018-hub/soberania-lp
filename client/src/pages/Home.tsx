@@ -294,18 +294,21 @@ function MechanismSection() {
 function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
   const cards = [
     {
-      title: 'Google Presença Local',
-      text: 'Para negócios que precisam melhorar como aparecem no Google e fortalecer a confiança de quem já pesquisa.',
+      title: 'Se a sua empresa aparece mal no Google',
+      text: 'O primeiro passo é organizar o perfil da empresa no Google Meu Negócio, corrigir a base e melhorar a forma como o negócio aparece para quem já está pesquisando.',
+      solutionName: 'Google Presença Local',
       highlight: false
     },
     {
-      title: 'Site Essencial de Captação',
-      text: 'Para negócios que precisam transformar busca em contato com uma estrutura simples e profissional.',
+      title: 'Se a sua empresa já aparece, mas ainda converte pouco',
+      text: 'Depois da presença, o próximo passo é unir Google Meu Negócio + site para transformar busca em contato com mais confiança, clareza e estrutura.',
+      solutionName: 'Google Presença + Site',
       highlight: true
     },
     {
-      title: 'Sistema Google de Aquisição Previsível',
-      text: 'Para negócios que querem unir presença, captação, tráfego e mensuração em uma estrutura mais completa.',
+      title: 'Se a sua empresa quer crescer com mais previsibilidade',
+      text: 'Com presença e base no lugar, a estrutura evolui para Google Ads, tracking, SEO e otimização contínua. É isso que transforma o Google em um canal real de aquisição.',
+      solutionName: 'Sistema Google de Aquisição Previsível',
       highlight: false
     }
   ];
@@ -316,10 +319,10 @@ function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight mb-4 max-w-3xl mx-auto">
-              Nem todo negócio precisa começar pelo sistema completo.
+              Cada negócio está em um momento diferente.
             </h2>
             <p className="text-[#C7CEDB80] text-lg max-w-2xl mx-auto" style={{ fontWeight: 300 }}>
-              Dependendo do momento da operação, o melhor ponto de partida pode ser presença local, site ou estrutura completa.
+              O melhor ponto de partida depende do que hoje está limitando sua presença, sua captação e sua estrutura no Google.
             </p>
           </div>
         </FadeIn>
@@ -337,7 +340,7 @@ function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
                   </p>
                 </div>
                 <div className="border-t border-[#C7CEDB10] pt-6 mt-auto">
-                  <span className="font-mono-brand text-xs text-[#C7CEDB50] tracking-wider uppercase">Foco na fase de negócio</span>
+                  <span className="font-mono-brand text-xs text-[#8B5CF6] tracking-wider uppercase">{card.solutionName}</span>
                 </div>
               </div>
             </FadeIn>
