@@ -100,9 +100,7 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
           <FadeIn delay={200}>
             <div className="mb-10 sm:mb-14">
               <p className="text-[#C7CEDB] text-base sm:text-lg lg:text-xl leading-[1.6] max-w-[640px] mb-8" style={{ fontWeight: 300 }}>
-                Eu estruturo presença, site e aquisição no Google <br className="hidden min-[360px]:block sm:hidden" />
-                para negócios que querem gerar mais contatos qualificados <br className="hidden min-[360px]:block sm:hidden" />
-                e crescer com mais previsibilidade.
+                Eu estruturo presença, site e aquisição no Google para negócios que querem gerar mais contatos qualificados e crescer com mais previsibilidade.
               </p>
               <ul className="space-y-3 hidden sm:block">
                 <li className="flex items-center gap-3 text-[#C7CEDB90] text-sm md:text-base font-light">
@@ -1172,6 +1170,7 @@ function Footer() {
 export default function Home() {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, position: 'hero' as any, text: '' });
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [showSticky, setShowSticky] = useState(false);
   
   const openModal = (pos: any = 'hero', text: string = '') => setModalConfig({ isOpen: true, position: pos, text });
   const closeModal = () => setModalConfig(prev => ({ ...prev, isOpen: false }));
@@ -1185,6 +1184,16 @@ export default function Home() {
     );
     observer.observe(footer);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Mostrar o sticky apenas após rolar pela seção Hero
+      setShowSticky(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const schemaOrg = {
@@ -1240,7 +1249,7 @@ export default function Home() {
       {/* Sticky Mobile CTA */}
       <div 
         className={`fixed bottom-0 left-0 right-0 z-50 md:hidden pointer-events-none transition-all duration-500 ease-in-out ${
-          isFooterVisible ? 'translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'
+          (!showSticky || isFooterVisible) ? 'translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'
         }`}
       >
         <div className="bg-gradient-to-t from-[#0A0B10] via-[#0A0B10]/95 to-transparent pt-12 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
