@@ -16,7 +16,7 @@ export default function Header() {
   const navLinks = [
     { label: 'O Sistema', href: '#sistema' },
     { label: 'Prova Social', href: '#prova' },
-    { label: 'Quem sou eu', href: '#quem-sou-eu' },
+    { label: 'Sobre', href: '#sobre' },
   ];
 
   return (
@@ -54,13 +54,13 @@ export default function Header() {
           data-cta-position="header"
           onClick={() => pushToDataLayer('whatsapp_click', {
             cta_position: 'header',
-            cta_text: 'SOLICITAR AUDITORIA',
+            cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
             path_type: 'direct',
             link_url: 'https://wa.me/5541987505634?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20Auditoria%20de%20Soberania.',
           })}
-          className="hidden md:inline-flex items-center px-5 py-2 border border-[#C7CEDB30] text-[#C7CEDB] font-mono-brand text-xs tracking-[0.08em] hover:border-[#8B5CF6] hover:text-[#8B5CF6] transition-all duration-300"
+          className="hidden md:inline-flex items-center px-4 py-2 border border-[#C7CEDB30] text-[#C7CEDB] font-mono-brand text-[10px] sm:text-xs tracking-[0.08em] hover:border-[#8B5CF6] hover:text-[#8B5CF6] transition-all duration-300"
         >
-          SOLICITAR AUDITORIA
+          ENTENDER O MELHOR PONTO DE PARTIDA
         </a>
 
         {/* Mobile Menu Button */}
@@ -92,7 +92,7 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.05 }}
                   onClick={() => setMobileOpen(false)}
-                  className="font-headline font-bold text-lg tracking-wide text-[#F2F2F2] py-4 border-b border-[#C7CEDB05] active:bg-white/5 transition-colors"
+                  className="font-headline font-semibold text-[1.15rem] tracking-wide text-[#F2F2F2] py-5 border-b border-[#C7CEDB05] active:text-[#8B5CF6] active:bg-[#8B5CF6]/5 transition-all flex items-center justify-between"
                 >
                   {link.label}
                 </motion.a>
@@ -108,13 +108,13 @@ export default function Header() {
                 data-cta-position="header"
                 onClick={() => pushToDataLayer('whatsapp_click', {
                   cta_position: 'header',
-                  cta_text: 'SOLICITAR AUDITORIA',
+                  cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
                   path_type: 'direct',
                   link_url: 'https://wa.me/5541987505634?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20Auditoria%20de%20Soberania.',
                 })}
-                className="mt-6 w-full inline-flex items-center justify-center px-6 py-4 bg-[#8B5CF6] text-white font-headline font-bold text-sm tracking-[0.05em] rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.2)] active:scale-95 transition-transform"
+                className="mt-6 w-full inline-flex items-center justify-center px-6 py-4 bg-[#8B5CF6] text-white font-headline font-bold text-sm tracking-[0.05em] rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-95 transition-transform text-center"
               >
-                SOLICITAR AUDITORIA
+                ENTENDER O MELHOR PONTO DE PARTIDA
               </motion.a>
             </div>
           </motion.div>

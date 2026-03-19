@@ -73,11 +73,11 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F1117]/80 via-transparent to-transparent lg:hidden" />
       </div>
 
-      <div className="relative z-10 container pt-36 pb-28 lg:pt-32 lg:pb-32">
+      <div className="relative z-10 container pt-24 pb-16 sm:pt-36 sm:pb-28 lg:pt-32 lg:pb-32">
         <div className="max-w-2xl lg:max-w-[760px]">
           {/* Chip */}
           <FadeIn>
-            <span className="chip mb-8 inline-flex">
+            <span className="chip mb-6 sm:mb-8 inline-flex">
               <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
               Especialista em Captação para Mercado Imobiliário e Negócios Premium
             </span>
@@ -85,16 +85,24 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
 
           {/* H1 */}
           <FadeIn delay={100}>
-            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(2.5rem,4vw,3.8rem)] leading-[1.15] lg:leading-[1.1] tracking-tight mb-8">
-              Estruture sua captação no Google e pare de depender de <span className="text-[#C7CEDB80] inline-block mt-2 lg:mt-0">portais, indicação e improviso.</span>
+            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[2.2rem] sm:text-[clamp(2.5rem,4vw,3.8rem)] leading-[1.2] lg:leading-[1.1] tracking-tight mb-6 sm:mb-8">
+              Estruture sua <br className="sm:hidden" />
+              captação no Google <br className="sm:hidden" />
+              e pare de depender <br className="sm:hidden" />
+              <span className="text-[#C7CEDB80] block sm:inline mt-1 sm:mt-0">
+                de portais, indicação <br className="sm:hidden" />
+                e improviso.
+              </span>
             </h1>
           </FadeIn>
 
           {/* Subtitle & Bullets */}
           <FadeIn delay={200}>
-            <div className="mb-14">
-              <p className="text-[#C7CEDB] text-lg lg:text-xl leading-relaxed max-w-[640px] mb-8" style={{ fontWeight: 300 }}>
-                Eu estruturo presença, site e aquisição no Google para negócios que querem gerar mais contatos qualificados e crescer com mais previsibilidade.
+            <div className="mb-10 sm:mb-14">
+              <p className="text-[#C7CEDB] text-base sm:text-lg lg:text-xl leading-[1.6] max-w-[640px] mb-8" style={{ fontWeight: 300 }}>
+                Eu estruturo presença, site e aquisição no Google <br className="hidden min-[360px]:block sm:hidden" />
+                para negócios que querem gerar mais contatos qualificados <br className="hidden min-[360px]:block sm:hidden" />
+                e crescer com mais previsibilidade.
               </p>
               <ul className="space-y-3 hidden sm:block">
                 <li className="flex items-center gap-3 text-[#C7CEDB90] text-sm md:text-base font-light">
@@ -145,7 +153,7 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F1117] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-32 bg-gradient-to-t from-[#0F1117] to-transparent" />
     </section>
   );
 }
@@ -171,7 +179,7 @@ function PainSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-32" style={{ background: '#0F1117' }}>
+    <section className="py-16 sm:py-20 lg:py-32" style={{ background: '#0F1117' }}>
       <div className="container">
         <FadeIn>
           <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight text-center mb-16">
@@ -184,10 +192,10 @@ function PainSection() {
             <FadeIn key={card.title} delay={i * 120}>
               <div className="glass-card p-8 lg:p-10 h-full group">
                 <card.icon className="w-6 h-6 text-[#EF4444]/60 mb-6 icon-breathe" strokeWidth={1.5} />
-                <h3 className="font-headline font-bold text-[#F2F2F2] text-lg mb-3">
+                <h3 className="font-headline font-bold text-[#F2F2F2] text-lg mb-4 sm:mb-3">
                   {card.title}
                 </h3>
-                <p className="text-[#C7CEDB90] text-sm leading-relaxed" style={{ fontWeight: 300 }}>
+                <p className="text-[#C7CEDB] text-[15px] sm:text-sm leading-relaxed" style={{ fontWeight: 300 }}>
                   {card.text}
                 </p>
               </div>
@@ -235,7 +243,7 @@ function MechanismSection() {
   ];
 
   return (
-    <section id="sistema" className="py-20 lg:py-32 relative" style={{ background: '#0F1117' }}>
+    <section id="sistema" className="py-16 sm:py-20 lg:py-32 relative" style={{ background: '#0F1117' }}>
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -303,7 +311,7 @@ function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
   ];
 
   return (
-    <section className="py-20 lg:py-32 relative border-t border-[#C7CEDB05]" style={{ background: '#0A0B10' }}>
+    <section className="py-16 sm:py-20 lg:py-32 relative border-t border-[#C7CEDB05]" style={{ background: '#0A0B10' }}>
       <div className="container relative z-10">
         <FadeIn>
           <div className="text-center mb-16">
@@ -342,15 +350,15 @@ function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
               onClick={() => {
                 pushToDataLayer('cta_open_modal', {
                   cta_position: 'starting_ways',
-                  cta_text: 'ENTENDER QUAL FORMATO FAZ MAIS SENTIDO',
+                  cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
                   modal_name: 'agendar_diagnostico',
                   path_type: 'modal'
                 });
                 onOpenCTA();
               }}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-[#8B5CF6] text-[#8B5CF6] font-headline font-bold text-sm tracking-[0.05em] hover:bg-[#8B5CF6]/10 transition-colors duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-[#8B5CF6] text-[#8B5CF6] font-headline font-bold text-sm tracking-[0.05em] hover:bg-[#8B5CF6]/10 transition-colors duration-300 w-full sm:w-auto text-center"
             >
-              ENTENDER QUAL FORMATO FAZ MAIS SENTIDO
+              ENTENDER O MELHOR PONTO DE PARTIDA
             </button>
           </div>
         </FadeIn>
@@ -362,7 +370,7 @@ function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
 /* ───────────────────── PRA QUEM É / NÃO É ───────────────────── */
 function FilterSection() {
   return (
-    <section className="py-20 lg:py-32 border-t border-[#C7CEDB05]" style={{ background: '#0A0B10' }}>
+    <section className="py-16 sm:py-20 lg:py-32 border-t border-[#C7CEDB05]" style={{ background: '#0A0B10' }}>
       <div className="container">
         <FadeIn>
           <div className="text-center mb-16">
@@ -785,7 +793,7 @@ function ProofSection() {
 /* ───────────────────── QUEM SOU EU ───────────────────── */
 function AboutMeSection() {
   return (
-    <section id="quem-sou-eu" className="py-20 lg:py-32 relative" style={{ background: '#0F1117' }}>
+    <section id="sobre" className="py-20 lg:py-32 relative" style={{ background: '#0F1117' }}>
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           {/* Photo Side */}
@@ -1239,15 +1247,15 @@ export default function Home() {
           onClick={() => {
             pushToDataLayer('cta_open_modal', {
               cta_position: 'final',
-              cta_text: 'AGENDAR DIAGNÓSTICO (Sticky)',
+              cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
               modal_name: 'agendar_diagnostico',
               path_type: 'modal'
             });
-            openModal('final', 'AGENDAR DIAGNÓSTICO (Sticky)');
+            openModal('final', 'ENTENDER O MELHOR PONTO DE PARTIDA');
           }}
-          className="btn-sheen w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#8B5CF6] text-white font-headline font-bold text-sm tracking-[0.05em] rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] pointer-events-auto"
+          className="btn-sheen w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#8B5CF6] text-white font-headline font-bold text-sm tracking-[0.05em] rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] pointer-events-auto text-center"
         >
-          AGENDAR DIAGNÓSTICO
+          ENTENDER O MELHOR PONTO DE PARTIDA
         </button>
         </div>
       </div>
