@@ -84,8 +84,8 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
 
           {/* H1 */}
           <FadeIn delay={100}>
-            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(2rem,4vw,3.4rem)] leading-[1.18] lg:leading-[1.12] tracking-tight mb-8">
-              Estruture sua captação <br className="block lg:hidden" /> no Google e pare de depender de <br className="hidden lg:block" /><span className="text-[#C7CEDB80] inline-block mt-2 lg:mt-0">portais, indicação e improviso.</span>
+            <h1 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(2.5rem,4vw,3.8rem)] leading-[1.15] lg:leading-[1.1] tracking-tight mb-8">
+              Estruture sua captação no Google e pare de depender de <span className="text-[#C7CEDB80] inline-block mt-2 lg:mt-0">portais, indicação e improviso.</span>
             </h1>
           </FadeIn>
 
@@ -93,12 +93,12 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
           <FadeIn delay={200}>
             <div className="mb-14">
               <p className="text-[#C7CEDB] text-lg lg:text-xl leading-relaxed max-w-[640px] mb-8" style={{ fontWeight: 300 }}>
-                Estruturo máquinas de aquisição no Google para negócios premium que precisam de previsibilidade e lucro auditável.
+                Eu estruturo presença, site e aquisição no Google para negócios que querem gerar mais contatos qualificados e crescer com mais previsibilidade.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-3 hidden sm:block">
                 <li className="flex items-center gap-3 text-[#C7CEDB90] text-sm md:text-base font-light">
                   <CheckCircle2 className="w-5 h-5 text-[#8B5CF6]" />
-                  R$ 3M+ gerenciados
+                  R$ 3M+ gerenciados em mídia
                 </li>
                 <li className="flex items-center gap-3 text-[#C7CEDB90] text-sm md:text-base font-light">
                   <CheckCircle2 className="w-5 h-5 text-[#8B5CF6]" />
@@ -106,7 +106,7 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
                 </li>
                 <li className="flex items-center gap-3 text-[#C7CEDB90] text-sm md:text-base font-light">
                   <CheckCircle2 className="w-5 h-5 text-[#8B5CF6]" />
-                  Estrutura e implantação em 7 a 14 dias
+                  Estrutura e implantação orientada a ROI
                 </li>
               </ul>
             </div>
@@ -114,14 +114,14 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
 
           {/* CTA */}
           <FadeIn delay={300}>
-            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-6">
               <button
                 data-gtm="cta"
                 data-cta-position="hero"
                 onClick={() => {
                   pushToDataLayer('cta_open_modal', {
                     cta_position: 'hero',
-                    cta_text: 'AGENDAR DIAGNÓSTICO',
+                    cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
                     modal_name: 'agendar_diagnostico',
                     path_type: 'modal'
                   });
@@ -129,33 +129,15 @@ function HeroSection({ onOpenCTA }: { onOpenCTA: () => void }) {
                 }}
                 className="btn-sheen inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#8B5CF6] text-white font-headline font-bold text-sm sm:text-base tracking-[0.05em] hover:bg-[#7C4FE0] transition-colors duration-300 w-full sm:w-auto shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)]"
               >
-                AGENDAR DIAGNÓSTICO
+                ENTENDER O MELHOR PONTO DE PARTIDA
               </button>
-              <a
-                href="#sistema"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('sistema')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-[#C7CEDB20] text-[#F2F2F2] font-headline font-bold text-sm tracking-[0.05em] hover:bg-[#ffffff05] hover:border-[#C7CEDB40] transition-all duration-300 w-full sm:w-auto"
-              >
-                ENTENDER O SISTEMA ↓
-              </a>
             </div>
 
-            {/* Chips de apoio */}
-            <div className="flex flex-wrap gap-2 items-center justify-center lg:justify-start">
-              <span className="font-mono-brand text-[10px] sm:text-xs text-[#C7CEDB60] tracking-wider uppercase">
-                Atendimento executivo
-              </span>
-              <span className="w-1 h-1 rounded-full bg-[#C7CEDB30] mx-1"></span>
-              <span className="font-mono-brand text-[10px] sm:text-xs text-[#C7CEDB60] tracking-wider uppercase">
-                Foco em ROI
-              </span>
-              <span className="w-1 h-1 rounded-full bg-[#C7CEDB30] mx-1"></span>
-              <span className="font-mono-brand text-[10px] sm:text-xs text-[#C7CEDB60] tracking-wider uppercase">
-                Sem pacotes engessados
-              </span>
+            {/* Chips de apoio CTA Secundário */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start">
+              <p className="font-mono-brand text-xs sm:text-sm text-[#C7CEDB60] uppercase tracking-wider">
+                Diagnóstico estratégico para negócios que querem estruturar presença e captação no Google.
+              </p>
             </div>
           </FadeIn>
         </div>
@@ -172,18 +154,18 @@ function PainSection() {
   const cards = [
     {
       icon: UserX,
-      title: 'Leads Desqualificados',
-      text: 'Você recebe contatos, mas a maioria é curiosa ou fora do perfil de compra ideal. O time de vendas perde tempo atendendo quem não vai fechar.',
+      title: 'Sem estrutura',
+      text: 'Mais esforço, menos previsibilidade. Você depende de portais genéricos ou indicação, não controla ativamente a atração qualificada.',
     },
     {
       icon: Zap,
-      title: 'Invisibilidade Orgânica',
-      text: 'Seu negócio simplesmente não aparece quando o cliente com dinheiro na mão pesquisa pelo serviço. Seu concorrente leva a venda por estar melhor posicionado.',
+      title: 'Sem direção',
+      text: 'Canal errado, mensagem errada, desperdício de tempo e verba. O cliente busca com dinheiro na mão e encontra seu concorrente.',
     },
     {
       icon: Clock,
-      title: 'Dependência de Indicação',
-      text: 'Não há previsibilidade no caixa. A operação vive de altos e baixos porque você não controla a própria captação de clientes.',
+      title: 'Sem base',
+      text: 'O negócio até aparece, mas não converte. A operação vive de altos e baixos e o time comercial gasta energia com curiosos.',
     },
   ];
 
@@ -191,22 +173,16 @@ function PainSection() {
     <section className="py-20 lg:py-32" style={{ background: '#0F1117' }}>
       <div className="container">
         <FadeIn>
-          <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight text-center mb-4">
-            O problema do seu negócio não é falta de marketing. É falta de infraestrutura.
+          <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight text-center mb-16">
+            O problema do seu negócio não é falta de marketing.<br className="hidden md:block" /> É falta de estrutura.
           </h2>
-        </FadeIn>
-
-        <FadeIn delay={100}>
-          <p className="text-[#C7CEDB80] text-center max-w-3xl mx-auto mb-16 text-lg" style={{ fontWeight: 300 }}>
-            Se você depende de portais genéricos ou se o seu cliente pesquisa no Google e encontra o seu concorrente antes de você, você está perdendo dinheiro todos os dias.
-          </p>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {cards.map((card, i) => (
             <FadeIn key={card.title} delay={i * 120}>
               <div className="glass-card p-8 lg:p-10 h-full group">
-                <card.icon className="w-6 h-6 text-[#C7CEDB50] mb-6 icon-breathe" strokeWidth={1.5} />
+                <card.icon className="w-6 h-6 text-[#EF4444]/60 mb-6 icon-breathe" strokeWidth={1.5} />
                 <h3 className="font-headline font-bold text-[#F2F2F2] text-lg mb-3">
                   {card.title}
                 </h3>
@@ -226,34 +202,34 @@ function PainSection() {
 function MechanismSection() {
   const assets = [
     {
-      icon: Target,
-      title: 'Google Search de Alta Intenção',
-      text: 'Campanhas de pesquisa focadas no fundo de funil, interceptando quem já decidiu comprar e está buscando exatamente o que você vende.',
-    },
-    {
       icon: MapPin,
-      title: 'Google Meu Negócio + Maps',
-      text: 'Domínio implacável da busca local. Geração de prova social imediata e atração de clientes da sua região estratégica.',
-    },
-    {
-      icon: TrendingUp,
-      title: 'SEO Estratégico',
-      text: 'Construção do seu principal ativo digital a longo prazo, reduzindo progressivamente a dependência exclusiva de anúncios pagos.',
+      title: 'Presença no Google',
+      text: 'Faz a empresa aparecer melhor e transmitir mais confiança para quem procura na sua região.',
     },
     {
       icon: Globe,
-      title: 'Landing Page de Alta Conversão',
-      text: 'Sua vitrine desenhada arquiteturalmente para reter atenção, gerar autoridade imediata e forçar o contato comercial qualificado.',
+      title: 'Site de Captação',
+      text: 'Estrutura direta focada em transformar a busca do usuário em um contato comercial claro e rápido.',
+    },
+    {
+      icon: Target,
+      title: 'Google Ads',
+      text: 'Acelera a geração de demanda qualificada, focado apenas em quem já tem intenção de compra.',
     },
     {
       icon: Database,
-      title: 'Tracking e Mensuração Executiva',
-      text: 'Implementação de GA4 e Conversões. Você saberá com exatidão matemática de onde vem e quanto custa cada lead gerado.',
+      title: 'Tracking e Mensuração',
+      text: 'Mostra o que está gerando resultado de verdade. O que não é medido vira opinião, e opinião não sustenta crescimento.',
     },
     {
-      icon: FileText,
-      title: 'Conteúdo de Intenção',
-      text: 'Elaboração de FAQs e artigos focados em antecipar e quebrar as objeções do seu comprador antes mesmo da primeira reunião.',
+      icon: TrendingUp,
+      title: 'SEO e Blog',
+      text: 'Ampliam a presença orgânica a médio prazo e fortalecem a autoridade da operação no Google.',
+    },
+    {
+      icon: Zap,
+      title: 'Otimização Contínua',
+      text: 'Ajusta e refina o sistema, os lances e a conversão do site para sustentar a evolução dos resultados.',
     },
   ];
 
@@ -270,59 +246,16 @@ function MechanismSection() {
       <div className="container relative z-10">
         <FadeIn>
           <div className="flex flex-col items-center mb-16">
-            <span className="chip mb-4 inline-flex">O Mecanismo Proprietário</span>
+            <span className="chip mb-4 inline-flex">Como essa estrutura se conecta</span>
             <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight text-center mb-4 max-w-4xl">
               Sistema Google de Aquisição Previsível
             </h2>
             <p className="text-[#C7CEDB80] text-center max-w-2xl text-lg" style={{ fontWeight: 300 }}>
-              Uma arquitetura blindada de 6 ativos integrados para transformar pesquisas em contratos assinados.
+              Uma estrutura para transformar busca em contato, fortalecer a confiança da empresa e criar uma base mais previsível de aquisição.
             </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={100}>
-          {/* Desktop Stepper */}
-          <div className="max-w-4xl mx-auto mb-20 hidden md:block">
-            <div className="grid grid-cols-4 gap-4 relative">
-              {/* Connecting Line */}
-              <div className="absolute top-6 left-[12.5%] right-[12.5%] h-[1px] bg-gradient-to-r from-transparent via-[#8B5CF6]/30 to-transparent" />
-
-              {[
-                { title: 'Intenção', desc: 'Captura de demanda' },
-                { title: 'Confiança', desc: 'Autoridade local' },
-                { title: 'Conversão', desc: 'Alta performance' },
-                { title: 'Mensuração', desc: 'ROI auditável' }
-              ].map((step, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center group">
-                  <div className="w-12 h-12 rounded-full bg-[#0F1117] border border-[#8B5CF6]/30 flex items-center justify-center font-mono-brand text-xs text-[#8B5CF6] mb-4 z-10 group-hover:bg-[#8B5CF6]/20 transition-colors shadow-[0_0_15px_rgba(139,92,246,0.1)] group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-                    0{i + 1}
-                  </div>
-                  <h4 className="font-headline font-bold text-[#F2F2F2] text-sm mb-1">{step.title}</h4>
-                  <p className="text-[#C7CEDB70] text-xs font-mono-brand uppercase tracking-wider">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Mobile Vertical Stepper */}
-          <div className="md:hidden flex flex-col items-center gap-8 mb-8 relative">
-            <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-transparent via-[#8B5CF6]/30 to-transparent" />
-            {[
-              { title: 'Intenção', desc: 'Captura de demanda' },
-              { title: 'Confiança', desc: 'Autoridade local' },
-              { title: 'Conversão', desc: 'Alta performance' },
-              { title: 'Mensuração', desc: 'ROI auditável' }
-            ].map((step, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center gap-3 group w-full">
-                <div className="w-10 h-10 rounded-full bg-[#0F1117] border border-[#8B5CF6]/40 flex items-center justify-center font-mono-brand text-[10px] text-[#8B5CF6] z-10 shadow-[0_0_15px_rgba(139,92,246,0.15)] shrink-0 group-active:bg-[#8B5CF6]/20 transition-colors">
-                  0{i + 1}
-                </div>
-                <div>
-                  <h4 className="font-headline font-bold text-[#F2F2F2] text-[15px] mb-1">{step.title}</h4>
-                  <p className="text-[#C7CEDB70] text-[10px] sm:text-xs font-mono-brand uppercase tracking-wider">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+            <p className="text-[#C7CEDB60] text-center max-w-2xl text-sm mt-3" style={{ fontWeight: 300 }}>
+              Cada parte do sistema cumpre uma função. Juntas, elas transformam o Google em um canal mais forte de aquisição.
+            </p>
           </div>
         </FadeIn>
 
@@ -348,6 +281,83 @@ function MechanismSection() {
   );
 }
 
+/* ───────────────────── FORMAS DE COMEÇAR (NOVO) ───────────────────── */
+function StartingWaysSection({ onOpenCTA }: { onOpenCTA: () => void }) {
+  const cards = [
+    {
+      title: 'Google Presença Local',
+      text: 'Para negócios que precisam melhorar como aparecem no Google e fortalecer a confiança de quem já pesquisa.',
+      highlight: false
+    },
+    {
+      title: 'Site Essencial de Captação',
+      text: 'Para negócios que precisam transformar busca em contato com uma estrutura simples e profissional.',
+      highlight: true
+    },
+    {
+      title: 'Sistema Google de Aquisição Previsível',
+      text: 'Para negócios que querem unir presença, captação, tráfego e mensuração em uma estrutura mais completa.',
+      highlight: false
+    }
+  ];
+
+  return (
+    <section className="py-20 lg:py-32 relative border-t border-[#C7CEDB05]" style={{ background: '#0A0B10' }}>
+      <div className="container relative z-10">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight mb-4 max-w-3xl mx-auto">
+              Nem todo negócio precisa começar pelo sistema completo.
+            </h2>
+            <p className="text-[#C7CEDB80] text-lg max-w-2xl mx-auto" style={{ fontWeight: 300 }}>
+              Dependendo do momento da operação, o melhor ponto de partida pode ser presença local, site ou estrutura completa.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
+          {cards.map((card, i) => (
+            <FadeIn key={card.title} delay={i * 100}>
+              <div className={`glass-card p-8 lg:p-10 h-full flex flex-col justify-between ${card.highlight ? 'border-t-4 border-t-[#8B5CF6] block-glow' : 'border-t-2 border-[#C7CEDB10]'}`}>
+                <div>
+                  <h3 className="font-headline font-bold text-[#F2F2F2] text-xl mb-4">
+                    {card.title}
+                  </h3>
+                  <p className="text-[#C7CEDB90] text-sm leading-relaxed mb-8" style={{ fontWeight: 300 }}>
+                    {card.text}
+                  </p>
+                </div>
+                <div className="border-t border-[#C7CEDB10] pt-6 mt-auto">
+                  <span className="font-mono-brand text-xs text-[#C7CEDB50] tracking-wider uppercase">Foco na fase de negócio</span>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={400}>
+          <div className="text-center">
+            <button
+              onClick={() => {
+                pushToDataLayer('cta_open_modal', {
+                  cta_position: 'starting_ways',
+                  cta_text: 'ENTENDER QUAL FORMATO FAZ MAIS SENTIDO',
+                  modal_name: 'agendar_diagnostico',
+                  path_type: 'modal'
+                });
+                onOpenCTA();
+              }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-[#8B5CF6] text-[#8B5CF6] font-headline font-bold text-sm tracking-[0.05em] hover:bg-[#8B5CF6]/10 transition-colors duration-300 w-full sm:w-auto"
+            >
+              ENTENDER QUAL FORMATO FAZ MAIS SENTIDO
+            </button>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 /* ───────────────────── PRA QUEM É / NÃO É ───────────────────── */
 function FilterSection() {
   return (
@@ -359,7 +369,7 @@ function FilterSection() {
               Com quem eu sento à mesa
             </h2>
             <p className="text-[#C7CEDB80] text-base max-w-2xl mx-auto" style={{ fontWeight: 300 }}>
-              Meu método é intensivo e focado em margem real. Não atendo projetos de "teste" ou aventuras comerciais.
+              Projetos em diferentes contextos, sempre com foco em estrutura, clareza e captação.
             </p>
           </div>
         </FadeIn>
@@ -501,16 +511,13 @@ function ProofSection() {
             viewport={{ once: true }}
             className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight text-center mb-4"
           >
-            Resultados reais.<br className="hidden md:block" /> Com contexto, estrutura e prova.
+            Resultados reais. Com contexto, estrutura e prova.
           </motion.h2>
         </FadeIn>
 
         <FadeIn delay={100}>
-          <p className="text-[#C7CEDB80] text-center max-w-2xl mx-auto mb-6 text-lg lg:text-xl" style={{ fontWeight: 300 }}>
-            Mais do que tráfego ou site bonito: eu organizo a base da operação para gerar visibilidade, contato e resultado.
-          </p>
-          <p className="text-[#C7CEDB80] text-center max-w-2xl mx-auto mb-12 text-base" style={{ fontWeight: 300 }}>
-            Cada projeto exige uma combinação diferente de estrutura, posicionamento e captação.
+          <p className="text-[#C7CEDB80] text-center max-w-2xl mx-auto mb-12 text-lg lg:text-xl" style={{ fontWeight: 300 }}>
+            Projetos em que presença, captação e estrutura foram tratadas de forma prática, com foco em resultado e clareza.
           </p>
         </FadeIn>
 
@@ -567,16 +574,16 @@ function ProofSection() {
 
                   <div className="space-y-4 mb-8">
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Objetivo</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Sair da dependência de portais e dominar busca local orgânica/paga.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Contexto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Operação com presença digital fraca e estrutura dispersa.</span>
                     </div>
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Implementação</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Reestruturação de SEO Local, site conversivo e tráfego fundo de funil.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Ação</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Foi organizada uma base de captação com Google, páginas e mensuração.</span>
                     </div>
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Resultado</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Estrutura principal e previsível da imobiliária hoje.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Impacto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Resultado: mais clareza, mais contatos e uma operação mais forte para crescer.</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
@@ -633,16 +640,16 @@ function ProofSection() {
 
                   <div className="space-y-4 mb-8">
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Objetivo</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Captar investidores para Golden Visa com autoridade visual.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Contexto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Empresa com necessidade de melhorar apresentação e conversão.</span>
                     </div>
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Implementação</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Site premium, SEO on-page focado e Meta Ads segmentado.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Ação</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Foi estruturada uma página com foco em captação e alinhamento da presença digital.</span>
                     </div>
                     <div className="grid grid-cols-[105px_1fr] sm:grid-cols-[120px_1fr] gap-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Resultado</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Fluxo previsível de leads ultra qualificados no mês 1.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Impacto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Resultado: mais confiança, mais clareza comercial e melhor aproveitamento da demanda.</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
@@ -702,16 +709,16 @@ function ProofSection() {
 
                   <div className="space-y-4 mb-8">
                     <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Objetivo</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Receber solicitações de orçamento de clientes com alta intenção de fechamento.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Contexto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Negócio com necessidade de organizar presença e canal de aquisição.</span>
                     </div>
                     <div className="grid grid-cols-[120px_1fr] gap-4 border-b border-[#C7CEDB10] pb-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Implementação</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Landing page nova voltada para conversão, tracking de API de conversões e campanha de pesquisa com palavras-chave com alta intenção de compra.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Ação</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Foi construída uma estrutura mais profissional para captação, leitura de dados e evolução contínua.</span>
                     </div>
                     <div className="grid grid-cols-[120px_1fr] gap-4">
-                      <span className="text-[#8B5CF6] font-bold text-sm">Resultado</span>
-                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Rotina sólida de orçamentos B2B integrada com planilha.</span>
+                      <span className="text-[#8B5CF6] font-bold text-sm">Impacto</span>
+                      <span className="text-[#C7CEDB90] text-sm font-light leading-relaxed">Resultado: base mais sólida para tráfego, presença e crescimento.</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 gap-4 border-y border-[#C7CEDB10] py-6 mb-6">
@@ -812,13 +819,13 @@ function AboutMeSection() {
             <FadeIn delay={100}>
               <span className="chip mb-4 inline-flex">Bastidores da Operação</span>
               <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight mb-6">
-                Prática real, gestão <br className="hidden lg:block" /> de risco e lucro auditável.
+                Prática real, gestão <br className="hidden lg:block" /> de risco e leitura de estrutura.
               </h2>
               <p className="text-[#F2F2F2] text-lg leading-relaxed mb-6 font-medium">
-                Eu estruturo aquisição no Google com método, mensuração e previsibilidade — sem pacotes engessados.
+                Meu trabalho não é só fazer marketing. É entender onde a operação está perdendo atenção, confiança e oportunidade no Google — e organizar isso em uma estrutura mais forte, mais mensurável e mais profissional.
               </p>
               <p className="text-[#C7CEDB95] text-base leading-relaxed mb-10" style={{ fontWeight: 400 }}>
-                Minha atuação não é baseada em teoria genérica ou "achismos". Ela nasce de operação real, onde cada real investido precisa retornar como receita. Abandonei o modelo frágil de agências tradicionais para entregar uma assessoria executiva, lado a lado com os decisores.
+                Mais do que executar ferramentas, o foco é estruturar presença, captação e decisão com base em leitura de mercado, clareza de canal e visão prática.
               </p>
             </FadeIn>
 
@@ -870,24 +877,6 @@ function AboutMeSection() {
 
 /* ───────────────────── AUTORIDADE / POR QUE EU ───────────────────── */
 function AuthoritySection() {
-  const points = [
-    {
-      icon: Terminal,
-      title: 'Foco em Engenharia, não em Arte',
-      text: 'Não vendo posts bonitos. Implemento códigos de tracking avançado (GTM, GA4), otimizo velocidade de página e gerencio orçamento com base matemática e auditoria rigorosa.',
-    },
-    {
-      icon: Users,
-      title: 'Modelo de Assessoria Executiva',
-      text: 'Você tem linha direta com o estrategista que aperta os botões e escreve o código. Sem gerentes de conta intermediários, sem estagiários copiando e colando campanhas, sem gargalos de comunicação.',
-    },
-    {
-      icon: ExternalLink,
-      title: 'Bagagem High-Ticket',
-      text: 'Experiência prática, validada e auditável com jornadas longas de decisão (imóveis de alto padrão, honorários jurídicos altos). Entendo a diferença vital entre um clique e uma intenção de compra.',
-    },
-  ];
-
   return (
     <section id="autoridade" className="py-20 lg:py-32 relative border-t border-[#C7CEDB05]" style={{ background: '#0F1117' }}>
       <div
@@ -903,16 +892,32 @@ function AuthoritySection() {
           <div className="text-center mb-16">
             <span className="chip mb-4 inline-flex">Background Técnico</span>
             <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.6rem,3vw,2.5rem)] leading-tight tracking-tight mb-4">
-              Por que essa estrutura funciona<br className="hidden md:block" /> (e agências comuns falham)
+              Por que essa estrutura funciona
             </h2>
             <p className="text-[#C7CEDB80] text-base max-w-2xl mx-auto" style={{ fontWeight: 300 }}>
-              Eu não sou uma agência criativa. Sou um arquiteto de sistemas de aquisição.
+              Porque crescer no Google não depende de uma peça isolada. Depende de direção, base e consistência.
             </p>
           </div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
-          {points.map((p, i) => (
+          {[
+            {
+              icon: Search,
+              title: 'Canal certo',
+              text: 'Nem toda demanda nasce no Instagram. Parte dela já está procurando no Google.',
+            },
+            {
+              icon: Database,
+              title: 'Estrutura antes de escala',
+              text: 'Sem base, mais investimento só aumenta desperdício.',
+            },
+            {
+              icon: BarChart3,
+              title: 'Clareza e mensuração',
+              text: 'O que não é medido vira opinião. E opinião não sustenta crescimento.',
+            },
+          ].map((p, i) => (
             <FadeIn key={p.title} delay={i * 150}>
               <div className="glass-card p-8 lg:p-10 h-full border-t-2 border-[#8B5CF6]/50">
                 <div className="inline-flex items-center justify-center w-12 h-12 border border-[#C7CEDB15] mb-6">
@@ -941,12 +946,12 @@ function LocalSEOSection() {
         <FadeIn>
           <span className="chip mb-4 inline-flex">Expansão Geográfica</span>
           <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.4rem,2.5vw,2.2rem)] leading-tight tracking-tight mb-6">
-            Atendimento Estratégico em<br className="hidden md:block" /> Araucária, Curitiba e Florianópolis
+            Atendimento Estratégico em<br className="hidden md:block" /> Araucária, Curitiba e Regiões
           </h2>
         </FadeIn>
         <FadeIn delay={100}>
           <p className="text-[#C7CEDB80] max-w-2xl mx-auto text-base leading-relaxed" style={{ fontWeight: 300 }}>
-            Desenvolvo projetos sob medida focados no ecossistema de buscas regionais, garantindo que negócios de alto ticket dominem o Google Meu Negócio e as buscas orgânicas de <strong className="text-[#F2F2F2] font-medium">Araucária</strong>, <strong className="text-[#F2F2F2] font-medium">Curitiba</strong> e <strong className="text-[#F2F2F2] font-medium">Florianópolis</strong>. Atuação remota global para empresas consolidadas.
+            Atendimento estratégico para Araucária, Curitiba e operações selecionadas em outras regiões.
           </p>
         </FadeIn>
       </div>
@@ -968,16 +973,14 @@ function FinalCTA({ onOpenCTA }: { onOpenCTA: () => void }) {
       />
       <div className="container relative z-10 text-center">
         <FadeIn>
-          <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.8rem,4vw,3rem)] leading-tight tracking-tight mb-6">
-            Construa seu sistema
-            <br />
-            <span className="text-[#C7CEDB60]">ou continue no caos.</span>
+          <h2 className="font-headline font-extrabold text-[#F2F2F2] text-[clamp(1.8rem,4vw,3.2rem)] leading-tight tracking-tight mb-6 max-w-4xl mx-auto">
+            Descubra qual é o melhor ponto de partida para estruturar sua captação no Google.
           </h2>
         </FadeIn>
 
         <FadeIn delay={150}>
-          <p className="text-[#C7CEDB80] max-w-lg mx-auto mb-10 text-base" style={{ fontWeight: 300 }}>
-            Você pode seguir tentando resolver aquisição com ações isoladas. Ou estruturar um sistema que transforma intenção em conversa comercial com prova.
+          <p className="text-[#C7CEDB80] max-w-2xl mx-auto mb-10 text-lg" style={{ fontWeight: 300 }}>
+            Nem todo negócio precisa começar do mesmo lugar. O diagnóstico mostra qual estrutura faz mais sentido para o momento da sua operação.
           </p>
         </FadeIn>
 
@@ -988,7 +991,7 @@ function FinalCTA({ onOpenCTA }: { onOpenCTA: () => void }) {
             onClick={() => {
               pushToDataLayer('cta_open_modal', {
                 cta_position: 'final',
-                cta_text: 'SOLICITAR AUDITORIA DE SOBERANIA',
+                cta_text: 'ENTENDER O MELHOR PONTO DE PARTIDA',
                 modal_name: 'agendar_diagnostico',
                 path_type: 'modal'
               });
@@ -996,7 +999,7 @@ function FinalCTA({ onOpenCTA }: { onOpenCTA: () => void }) {
             }}
             className="inline-flex items-center gap-2 px-10 py-5 bg-[#8B5CF6] text-white font-headline font-bold text-sm tracking-[0.05em] hover:bg-[#7C4FE0] transition-colors duration-300"
           >
-            SOLICITAR AUDITORIA DE SOBERANIA
+            ENTENDER O MELHOR PONTO DE PARTIDA
           </button>
         </FadeIn>
 
@@ -1014,28 +1017,32 @@ function FinalCTA({ onOpenCTA }: { onOpenCTA: () => void }) {
 function FAQSection() {
   const faqs = [
     {
-      q: 'Em quanto tempo começo a ver resultado?',
-      a: 'Alguns negócios veem resultado em 7–10 dias com Maps + Search. SEO é médio/longo prazo.\nDepende da demanda local e da estrutura atual.\nSe quiser, eu digo a rota mais rápida no diagnóstico gratuíto.',
+      q: 'Minha empresa precisa do sistema completo para começar?',
+      a: 'Não. Em muitos casos, o melhor ponto de partida é organizar a presença no Google ou estruturar um site simples de captação antes de evoluir para uma operação mais completa.',
     },
     {
-      q: 'Isso serve apenas para imobiliárias?',
-      a: 'Não. Serve para advogados, engenheiros, clínicas e qualquer serviço high-ticket.\nDepende da complexidade e tempo de decisão do seu cliente.\nEu avalio se a estrutura funciona para o seu nicho em 15 min no diagnóstico.',
+      q: 'Quando faz sentido começar só pela presença no Google?',
+      a: 'Quando a empresa já aparece nas buscas, mas ainda está mal apresentada, incompleta ou pouco ativa. Nesse caso, fortalecer a presença local costuma ser o primeiro passo mais lógico.',
     },
     {
-      q: 'Eu preciso investir em Google Ads para o método funcionar?',
-      a: 'É recomendado para gerar caixa rápido, mas eu estruturo o SEO Local junto.\nIsso garante que você não dependa apenas de tráfego pago no longo prazo.\nPosso desenhar a melhor divisão de verba para você no diagnóstico.',
+      q: 'Quando faz sentido criar um site?',
+      a: 'Quando a empresa precisa transformar busca em contato com mais clareza, passar mais confiança e ter uma estrutura mínima mais profissional para apoiar a captação.',
     },
     {
-      q: 'Você faz só site ou landing page?',
-      a: 'Não. Fazer um site isolado e abandoná-lo não gera resultado nenhum.\nEu desenho e implemento a rota toda: a página, o posicionamento, tráfego e tracking.\nSolicite o diagnóstico para ver como as peças se conectam.',
+      q: 'O que está incluso no sistema completo?',
+      a: 'A estrutura pode incluir presença local, site, Google Ads, tracking, SEO, blog e otimização contínua — sempre de acordo com o momento e a necessidade da operação.',
     },
     {
-      q: 'A conta e os leads ficam comigo?',
-      a: 'Sim, 100%. Todo o ativo construído no Google pertence ao seu CNPJ.\nNão amarro clientes; eles ficam pelo resultado.\nAbrimos tudo na call de diagnóstico.',
+      q: 'O acompanhamento é mensal?',
+      a: 'Depende da estrutura contratada. Alguns projetos começam com setup inicial, enquanto outros já incluem acompanhamento e otimização contínua.',
     },
     {
-      q: 'Como o escopo e o investimento são definidos?',
-      a: 'Eu não trabalho com pacotes engessados.\nO escopo depende da sua meta e da maturidade comercial da empresa hoje.\nNo diagnóstico gratuito, nós mapeamos o gargalo e definimos os próximos passos.',
+      q: 'Isso serve para qualquer nicho?',
+      a: 'Serve principalmente para negócios que dependem de busca, confiança e contato qualificado para vender melhor. O formato ideal varia conforme o nicho e o momento da empresa.',
+    },
+    {
+      q: 'Como funciona o diagnóstico?',
+      a: 'É uma análise inicial para entender como a empresa aparece hoje, onde estão os principais gargalos e qual estrutura faz mais sentido como ponto de partida.',
     },
   ];
 
@@ -1200,7 +1207,9 @@ export default function Home() {
       <PainSection />
       <SectionDivider number="02" label="Mecanismo" />
       <MechanismSection />
-      <SectionDivider number="03" label="Qualificação" />
+      <SectionDivider number="03" label="Jornada" />
+      <StartingWaysSection onOpenCTA={() => openModal('starting_ways', 'ENTENDER QUAL FORMATO FAZ MAIS SENTIDO')} />
+      <SectionDivider number="04" label="Qualificação" />
       <FilterSection />
       <SectionDivider number="04" label="Evidências" />
       <ProofSection />

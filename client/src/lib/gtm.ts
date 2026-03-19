@@ -4,7 +4,7 @@ declare global {
     }
 }
 
-export type CTAPosition = 'header' | 'hero' | 'middle' | 'final' | 'modal' | 'footer';
+export type CTAPosition = 'header' | 'hero' | 'middle' | 'final' | 'modal' | 'footer' | 'starting_ways';
 export type PathType = 'direct' | 'modal';
 export type ModalName = 'agendar_diagnostico';
 export type SocialPlatform = 'linkedin' | 'instagram';
